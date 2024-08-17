@@ -1,29 +1,23 @@
-def is_valid_email(email):
-    # Check for a single '@' symbol
-    if email.count('@') != 1:
+def isValidEmail(email):
+    if email.count('@')!=1:
         return False
     
-    # Split email into username and domain parts
-    username, domain = email.split('@')
-    
-    # Check if both username and domain are non-empty
+    username,domain = email.split('@')
     if not username or not domain:
         return False
-    
-    # Domain must contain a '.' and not start or end with it
-    if '.' not in domain or domain.startswith('.') or domain.endswith('.'):
+    if domain.count('.') != 1:
         return False
     
-    # Username and domain should not have invalid characters
+    if '.' not in domain or domain.endswith('.') or domain.startswith('.'):
+        return False
+
     valid_chars = set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.-_")
     if not set(username).issubset(valid_chars) or not set(domain).issubset(valid_chars):
         return False
-    
     return True
-
-# Example usage
-email = input('enter your email')
-if is_valid_email(email):
-    print("Valid email")
+    
+email = input('Enter your email address :')
+if isValidEmail(email):
+    print('valid email')
 else:
-    print("Invalid email")
+    print('Invalid email')
