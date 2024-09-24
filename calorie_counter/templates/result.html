@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Calories</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-color: rgb(1, 11, 19);
+            color: greenyellow;
+        }
+        p{
+            font-size: 64px;
+            position: fixed;
+            transition: all 0.3s ease-out; /* Added CSS transition */
+            pointer-events: none; /* Allow mouse events to pass through the result element */
+        }
+    </style>
+</head>
+<body>
+    <h1>Total Calories</h1>
+    <div id="total-calories">
+        <p id="calories">{{ total_calories }} kcal</p>
+    </div>
+
+    <script>
+        var result = document.getElementById('calories' , );
+        
+        // Update result position after 2 seconds
+        setTimeout(function() {
+            document.onmousemove = function(event) {
+                var x = event.clientX;
+                var y = event.clientY;
+                result.style.left = x + 'px';
+                result.style.top = y + 'px';
+            };
+        }, ); // 2000 milliseconds = 2 seconds
+    </script>
+</body>
+</html>
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Calories</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<style>
+    body{
+        font-family: 'Poppins', sans-serif;
+        text-align: center;
+        background-color: rgb(1, 11, 19);
+        color: greenyellow;
+    }
+    h1{
+        margin-top: 10%;
+    }
+    p{
+        font-size: 64px;
+    }
+</style>
+<body >
+    <h1 >Total Calories</h1>
+    <div id="total-calories" >
+        <p >{{ total_calories }} kcal</p>
+    </div>
+</body>
+</html> -->

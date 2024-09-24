@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Counter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: rgb(1, 11, 19);
+            padding: 22px;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+        }
+        h1 {
+            color: greenyellow;
+            text-align: center;
+            font-weight: 500;
+        }
+        #calorie-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .food-input {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px; /* Optional: Adds some space between each food input */
+            font-weight: 500;
+        }
+        label {
+            color: rgb(255, 255, 255);
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 6px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid#ccc;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+ 
+        button {
+            width: 30%;
+            background-color: rgb(43, 212, 142);
+            color: rgb(255, 255, 255);
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 10px; /* Add space between buttons */
+            font-size: 50;
+            
+        }
+        button:hover {
+            background-color: rgb(73, 230, 73);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calorie Counter</h1>
+    <form id="calorie-form" method="POST" action="/calculate">
+        <div id="food-inputs">
+            <div class="food-input">
+                <label for="food_name">Enter Food Name:</label>
+                <input type="text" name="food_name" required>
+                <label for="food_weight">Enter Weight (g):</label>
+                <input type="number" name="food_weight" required>
+            </div>
+        </div>
+        <button type="button" id="add-food" style="font-size:medium;">Add Food</button>
+        <button type="submit" id="calculate" style="font-size:medium;">Calculate Calories</button>
+    </form>
+
+    <script>
+        document.getElementById('add-food').addEventListener('click', function() {
+            var foodInputs = document.getElementById('food-inputs');
+            var newFoodInput = document.createElement('div');
+            newFoodInput.classList.add('food-input');
+            newFoodInput.innerHTML = `
+                <label for="food_name">Enter Food Name:</label>
+                <input type="text" name="food_name" required>
+                <label for="food_weight">Enter Weight (g):</label>
+                <input type="number" name="food_weight" required>
+            `;
+            foodInputs.appendChild(newFoodInput);
+        });
+    </script>
+</body>
+</html>
