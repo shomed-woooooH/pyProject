@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calorie Counter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<style>
+    body {
+        background-color: rgb(5, 5, 14);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    form {
+        width: 100%; /* Adjust the width as needed */
+        max-width: 600px; /* Limit the maximum width */
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    label,
+    input,
+    button {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+        width: calc(100% - 20px); /* Subtract padding from width */
+        padding: 5px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        padding: 8px 0;
+        border: none;
+        border-radius: 5px;
+        background-color: #0f6ed3;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1 style="color: rgb(240, 240, 240);font-weight: 300;padding-left: 33px;font-size: 40px;">Food Information</h1>
+        <form action="/calculate" method="post">
+            <label for="food_name" style="text-align: center;">Enter Food Name:</label>
+            <input type="text" id="food_name" name="food_name" required>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</body>
+</html>

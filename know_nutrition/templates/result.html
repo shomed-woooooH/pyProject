@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Information</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+
+</head>
+<style>
+    ul {
+        color: #ffffff;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0; 
+        font-family: 'Poppins', sans-serif;
+        padding: 10px;
+        list-style-type: none;
+        padding-left: 0;
+
+        
+     }
+
+    li {
+        padding: 10px;
+        padding-left: 10px;
+        border-bottom: .5px solid #dddddd;
+     }
+    li:hover {
+        background-color: #5e616d;
+        
+        transition: .3s;
+        
+     }
+    /* Optional: Adjust styles for the content */
+    h1 {
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+     }
+
+    p {
+        text-align: center;
+     }
+     </style>
+<body style="background-color: rgb(25, 25, 41);">
+     <h1 style="font-weight: 500;font-size: 40px;color: white;">Nutrition Information</h1>
+    <ul>
+        {% for item in nutrition_info %}
+            <li><strong >Name:</strong> &nbsp&nbsp  {{ item.name }}</li>
+            <li><strong >Carbohydrates:</strong> &nbsp&nbsp{{ item.carbohydrates_total_g }}g</li>
+            <li><strong >Protein:</strong> &nbsp&nbsp{{ item.protein_g }}g</li>
+            <li><strong >Fat (Total):</strong> &nbsp&nbsp{{ item.fat_total_g }}g</li>
+            <li><strong >Sugar:</strong> &nbsp&nbsp{{ item.sugar_g }}g</li>
+            <li><strong >Calories:</strong> &nbsp&nbsp{{ item.calories }}g</li>
+            
+        {% endfor %}
+    </ul>
+</body>
+</html>
